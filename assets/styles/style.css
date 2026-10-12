@@ -2,7 +2,7 @@
   /* Подложка вокруг мобильного контейнера на десктопе */
   --page-bg:#0d0d11;
 
-  /* Чистые, свежие светлые поверхности без «грязного» серого */
+  /* Светлая тема: чистые, свежие поверхности */
   --surface-bg:#ffffff;
   --surface-2:#f8f9fb;
   --surface-3:#edf0f5;
@@ -19,11 +19,13 @@
   --icon-muted:#7c8494;
   --border:#e6e9f0;
 
-  /* Акцент: неоновая маджента (киберпанк / вебкам) */
-  --accent:#EC4899;
-  --accent-dark:#BE185D;
-  --accent-glow:rgba(236,72,153,0.35);
+  /* Акцент: Премиальное Золото (Amber) */
+  --accent:#F59E0B;
+  --accent-dark:#D97706;
+  --accent-glow:rgba(245,158,11,0.35);
   --accent-green:#10B981;
+  /* Для золота нужен темный текст на плашках для контраста */
+  --accent-text:#111317; 
 
   /* Элементы плеера */
   --player-icon:#ffffff;
@@ -32,7 +34,7 @@
   --player-bottom-grad:linear-gradient(0deg,rgba(0,0,0,.92) 0%,rgba(0,0,0,.4) 60%,rgba(0,0,0,0) 100%);
 
   /* Навигация и элементы */
-  --tab-active:#EC4899;
+  --tab-active:#F59E0B;
   --tab-line:#e6e9f0;
   --card-bg:#ffffff;
   --modal-bg:#ffffff;
@@ -42,29 +44,30 @@
 }
 
 html[data-theme="dark"]{
-  /* Темная тема с глубоким чернильно-фиолетовым подтоном (OLED-friendly) */
-  --page-bg:#070609;
-  --surface-bg:#0f0e15;
-  --surface-2:#16151f;
-  --surface-3:#211f2d;
-  --pill-bg:#1d1b28;
-  --pill-bg-2:#282537;
+  /* Темная тема: глубокий "карбоновый" черный для лучшего контраста с золотом */
+  --page-bg:#050505;
+  --surface-bg:#121212;
+  --surface-2:#1a1a1a;
+  --surface-3:#262626;
+  --pill-bg:#1f1f1f;
+  --pill-bg-2:#292929;
 
   /* Текст */
   --text-main:#f5f5f7;
-  --text-muted:#9d9aa8;
-  --text-soft:#696577;
+  --text-muted:#a3a3a3;
+  --text-soft:#737373;
 
   /* Иконки */
-  --icon-main:#edeaf5;
-  --icon-muted:#8e8a9d;
-  --border:#262433;
+  --icon-main:#ededed;
+  --icon-muted:#8f8f8f;
+  --border:#2e2e2e;
 
-  /* Акценты для темного фона (чуть светлее для лучшего контраста на черном) */
-  --accent:#F472B6;
-  --accent-dark:#EC4899;
-  --accent-glow:rgba(244,114,182,0.35);
+  /* Акценты для темного фона (светлое, яркое золото) */
+  --accent:#FBBF24;
+  --accent-dark:#F59E0B;
+  --accent-glow:rgba(251,191,36,0.35);
   --accent-green:#10B981;
+  --accent-text:#111317;
 
   /* Плеер */
   --player-icon:#ffffff;
@@ -73,13 +76,13 @@ html[data-theme="dark"]{
   --player-bottom-grad:linear-gradient(0deg,rgba(0,0,0,.95) 0%,rgba(0,0,0,.45) 60%,rgba(0,0,0,0) 100%);
 
   /* Навигация и элементы */
-  --tab-active:#F472B6;
-  --tab-line:#232131;
-  --card-bg:#0f0e15;
-  --modal-bg:#16151f;
+  --tab-active:#FBBF24;
+  --tab-line:#2e2e2e;
+  --card-bg:#121212;
+  --modal-bg:#1a1a1a;
   --modal-text:#f5f5f7;
-  --modal-muted:#9d9aa8;
-  --shadow-main:0 12px 45px rgba(0,0,0,.75);
+  --modal-muted:#a3a3a3;
+  --shadow-main:0 12px 45px rgba(0,0,0,.8);
 }
 
 *{
@@ -228,7 +231,7 @@ html.clone-mode,
 }
 
 .vp-text-logo-accent {
-  color:#fff;
+  color:var(--accent-text);
   background:var(--accent);
   padding:3px 6px;
   border-radius:5px;
@@ -267,7 +270,7 @@ html.clone-mode,
 }
 
 .vp-sex-icons .i-female{
-  color:#F472B6;
+  color:var(--accent);
   width:17px;
   height:17px;
 }
@@ -341,9 +344,9 @@ html.clone-mode,
   padding:0 5px;
   border-radius:999px;
   background:var(--accent);
-  color:#fff;
+  color:var(--accent-text);
   font-size:11px;
-  font-weight:700;
+  font-weight:800;
   display:inline-flex;
   align-items:center;
   justify-content:center;
@@ -404,7 +407,7 @@ html.clone-mode,
 
 .vp-pill.red{
   background:var(--accent);
-  color:#fff;
+  color:var(--accent-text);
   font-weight:700;
 }
 
@@ -541,11 +544,12 @@ html.clone-mode,
   justify-content:center;
   box-shadow:0 4px 14px rgba(0,0,0,.4);
   backdrop-filter:blur(6px);
-  transition:transform .15s ease, background .15s ease;
+  transition:transform .15s ease, background .15s ease, color .15s ease;
 }
 
 .vp-play-btn:hover{
   background:var(--accent);
+  color:var(--accent-text);
 }
 
 .vp-center-btn{
@@ -671,9 +675,9 @@ html.clone-mode,
   border-radius:3px;
   padding:0 3px;
   background:var(--accent);
-  color:#fff;
+  color:var(--accent-text);
   font-size:11px;
-  font-weight:700;
+  font-weight:800;
   display:inline-flex;
   align-items:center;
   justify-content:center;
@@ -756,9 +760,9 @@ html.clone-mode,
   padding:0 5px;
   border-radius:999px;
   background:var(--accent);
-  color:#fff;
+  color:var(--accent-text);
   font-size:10px;
-  font-weight:700;
+  font-weight:800;
   display:inline-flex;
   align-items:center;
   justify-content:center;
@@ -824,7 +828,7 @@ html.clone-mode,
   aspect-ratio:16/9;
   overflow:hidden;
   border-radius:8px;
-  background:#1f1d2b;
+  background:#1a1a1a;
   margin-bottom:8px;
 }
 
@@ -915,14 +919,15 @@ html.clone-mode,
   justify-content:center;
   font-size:10px;
   font-weight:700;
-  color:#fff;
+  color:var(--accent-text);
   background:linear-gradient(135deg,var(--accent) 0%,var(--accent-dark) 100%);
   overflow:hidden;
   flex-shrink:0;
 }
 
 .vp-card-avatar::before{
-  content:"LC";
+  content:"VIP";
+  font-size:8px;
   letter-spacing:.2px;
 }
 
@@ -990,7 +995,7 @@ html.clone-mode,
   padding:12px;
   border-radius:10px;
   font-size:15px;
-  font-weight:700;
+  font-weight:800;
   cursor:pointer;
   width:100%;
   transition:opacity .15s ease;
@@ -1002,7 +1007,7 @@ html.clone-mode,
 
 .vp-btn-primary{
   background:var(--accent);
-  color:#fff;
+  color:var(--accent-text);
 }
 
 .vp-btn-secondary{
