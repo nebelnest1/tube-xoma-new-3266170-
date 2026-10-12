@@ -1,59 +1,85 @@
 :root{
-  --page-bg:#3f3f3f;
-  --surface-bg:#f3f3f3;
-  --surface-2:#fff;
-  --surface-3:#e9e9e9;
-  --pill-bg:#e2e2e2;
-  --pill-bg-2:#dcdcdc;
-  --text-main:#252525;
-  --text-muted:#6d6d6d;
-  --text-soft:#8d8d8d;
-  --icon-main:#2f2f2f;
-  --icon-muted:#6c6c6c;
-  --border:#d6d6d6;
-  --accent:#7C3AED;
-  --accent-dark:#6D28D9;
-  --accent-green:#22c78a;
-  --player-icon:#f5f5f5;
-  --player-shadow:rgba(0,0,0,.48);
-  --player-circle:rgba(0,0,0,.45);
-  --player-bottom-grad:linear-gradient(0deg,rgba(0,0,0,.8) 0%,rgba(0,0,0,.25) 55%,rgba(0,0,0,0) 100%);
-  --tab-active:#7C3AED;
-  --tab-line:#d0d0d0;
-  --card-bg:#f3f3f3;
-  --modal-bg:#fff;
-  --modal-text:#252525;
-  --modal-muted:#6d6d6d;
-  --shadow-main:0 0 15px rgba(0,0,0,.35);
+  /* Подложка вокруг мобильного контейнера на десктопе */
+  --page-bg:#0d0d11;
+
+  /* Чистые, свежие светлые поверхности без «грязного» серого */
+  --surface-bg:#ffffff;
+  --surface-2:#f8f9fb;
+  --surface-3:#edf0f5;
+  --pill-bg:#f1f3f7;
+  --pill-bg-2:#e4e7ee;
+
+  /* Текст с выверенной контрастностью */
+  --text-main:#111317;
+  --text-muted:#636a79;
+  --text-soft:#9aa1b0;
+
+  /* Иконки */
+  --icon-main:#1e2025;
+  --icon-muted:#7c8494;
+  --border:#e6e9f0;
+
+  /* Акцент: неоново-фиолетовый (электрик/вельвет) */
+  --accent:#8B5CF6;
+  --accent-dark:#7C3AED;
+  --accent-glow:rgba(139,92,246,0.3);
+  --accent-green:#10B981;
+
+  /* Элементы плеера */
+  --player-icon:#ffffff;
+  --player-shadow:rgba(0,0,0,.65);
+  --player-circle:rgba(18,16,26,.6);
+  --player-bottom-grad:linear-gradient(0deg,rgba(0,0,0,.92) 0%,rgba(0,0,0,.4) 60%,rgba(0,0,0,0) 100%);
+
+  /* Навигация и элементы */
+  --tab-active:#8B5CF6;
+  --tab-line:#e6e9f0;
+  --card-bg:#ffffff;
+  --modal-bg:#ffffff;
+  --modal-text:#111317;
+  --modal-muted:#636a79;
+  --shadow-main:0 12px 40px rgba(0,0,0,.45);
 }
 
 html[data-theme="dark"]{
-  --page-bg:#3f3f3f;
-  --surface-bg:#191919;
-  --surface-2:#191919;
-  --surface-3:#242424;
-  --pill-bg:#2b2b2b;
-  --pill-bg-2:#2d2d2d;
-  --text-main:#f1f1f1;
-  --text-muted:#a7a7a7;
-  --text-soft:#8d8d8d;
-  --icon-main:#f3f3f3;
-  --icon-muted:#b1b1b1;
-  --border:#303030;
-  --accent:#7C3AED;
-  --accent-dark:#6D28D9;
-  --accent-green:#22c78a;
-  --player-icon:#f5f5f5;
-  --player-shadow:rgba(0,0,0,.55);
-  --player-circle:rgba(0,0,0,.52);
-  --player-bottom-grad:linear-gradient(0deg,rgba(0,0,0,.88) 0%,rgba(0,0,0,.35) 55%,rgba(0,0,0,0) 100%);
-  --tab-active:#7C3AED;
-  --tab-line:#343434;
-  --card-bg:#191919;
-  --modal-bg:#1f1f1f;
-  --modal-text:#f1f1f1;
-  --modal-muted:#a7a7a7;
-  --shadow-main:0 0 15px rgba(0,0,0,.5);
+  /* Темная тема с глубоким чернильно-фиолетовым подтоном (OLED-friendly) */
+  --page-bg:#070609;
+  --surface-bg:#0f0e15;
+  --surface-2:#16151f;
+  --surface-3:#211f2d;
+  --pill-bg:#1d1b28;
+  --pill-bg-2:#282537;
+
+  /* Текст */
+  --text-main:#f5f5f7;
+  --text-muted:#9d9aa8;
+  --text-soft:#696577;
+
+  /* Иконки */
+  --icon-main:#edeaf5;
+  --icon-muted:#8e8a9d;
+  --border:#262433;
+
+  /* Акценты для темного фона (чуть ярче для читаемости) */
+  --accent:#9061F9;
+  --accent-dark:#7C3AED;
+  --accent-glow:rgba(144,97,249,0.35);
+  --accent-green:#10B981;
+
+  /* Плеер */
+  --player-icon:#ffffff;
+  --player-shadow:rgba(0,0,0,.8);
+  --player-circle:rgba(15,14,21,.75);
+  --player-bottom-grad:linear-gradient(0deg,rgba(0,0,0,.95) 0%,rgba(0,0,0,.45) 60%,rgba(0,0,0,0) 100%);
+
+  /* Навигация и элементы */
+  --tab-active:#9061F9;
+  --tab-line:#232131;
+  --card-bg:#0f0e15;
+  --modal-bg:#16151f;
+  --modal-text:#f5f5f7;
+  --modal-muted:#9d9aa8;
+  --shadow-main:0 12px 45px rgba(0,0,0,.75);
 }
 
 *{
@@ -65,7 +91,7 @@ body{
   margin:0;
   padding:0;
   background:var(--page-bg);
-  font-family:Arial,Helvetica,sans-serif;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   color:var(--text-main);
   overflow-x:hidden;
 }
@@ -103,7 +129,7 @@ html.clone-mode,
   overflow-x:hidden!important;
   width:auto!important;
   height:auto!important;
-  }
+}
 
 .clone-mode .fade-in-wrapper{
   width:100%!important;
@@ -164,8 +190,9 @@ html.clone-mode,
   align-items:center;
   justify-content:space-between;
   gap:12px;
-  padding:10px 14px 6px;
+  padding:12px 14px 8px;
   background:var(--surface-bg);
+  border-bottom:1px solid var(--border);
 }
 
 .vp-header-left{
@@ -203,9 +230,9 @@ html.clone-mode,
 .vp-text-logo-accent {
   color:#fff;
   background:var(--accent);
-  padding:2px 5px;
-  border-radius:4px;
-  margin-left:3px;
+  padding:3px 6px;
+  border-radius:5px;
+  margin-left:4px;
 }
 
 .vp-region-sex{
@@ -240,13 +267,13 @@ html.clone-mode,
 }
 
 .vp-sex-icons .i-female{
-  color:#7C3AED;
+  color:#A78BFA;
   width:17px;
   height:17px;
 }
 
 .vp-sex-icons .i-straight{
-  color:#2D87D4;
+  color:#60A5FA;
   width:17px;
   height:17px;
   margin-left:-2px;
@@ -255,7 +282,7 @@ html.clone-mode,
 .vp-region-arrow{
   width:13px;
   height:13px;
-  color:var(--icon-main);
+  color:var(--icon-muted);
   margin-top:3px;
   flex-shrink:0;
 }
@@ -276,6 +303,11 @@ html.clone-mode,
   justify-content:center;
   position:relative;
   cursor:pointer;
+  transition:color .15s ease;
+}
+
+.vp-header-icon:hover{
+  color:var(--accent);
 }
 
 .vp-header-icon svg{
@@ -302,35 +334,35 @@ html.clone-mode,
 
 .vp-notif-badge{
   position:absolute;
-  top:-8px;
-  right:-8px;
-  min-width:28px;
-  height:28px;
-  padding:0 8px;
+  top:-6px;
+  right:-6px;
+  min-width:20px;
+  height:20px;
+  padding:0 5px;
   border-radius:999px;
   background:var(--accent);
   color:#fff;
-  font-size:18px;
+  font-size:11px;
   font-weight:700;
   display:inline-flex;
   align-items:center;
   justify-content:center;
   line-height:1;
-  box-shadow:0 2px 4px rgba(0,0,0,.18);
+  box-shadow:0 2px 6px rgba(139,92,246,.45);
 }
 
 .vp-title-section{
-  padding:8px 14px 6px;
+  padding:12px 14px 8px;
   background:var(--surface-bg);
 }
 
 .vp-title{
   margin:0 0 10px;
-  font-size:21px;
-  line-height:1.28;
-  font-weight:700;
+  font-size:20px;
+  line-height:1.3;
+  font-weight:750;
   color:var(--text-main);
-  letter-spacing:-.1px;
+  letter-spacing:-.2px;
 }
 
 .vp-tags-row{
@@ -341,17 +373,20 @@ html.clone-mode,
 }
 
 .vp-pill{
-  min-height:24px;
+  min-height:26px;
   display:inline-flex;
   align-items:center;
   gap:6px;
   padding:0 10px;
-  border-radius:6px;
+  border-radius:8px;
   background:var(--pill-bg);
   color:var(--text-main);
   font-size:12px;
+  font-weight:600;
   line-height:1;
   white-space:nowrap;
+  border:1px solid transparent;
+  transition:background .15s ease;
 }
 
 .vp-pill svg{
@@ -362,7 +397,7 @@ html.clone-mode,
 }
 
 .vp-pill.icon-only{
-  width:34px;
+  width:32px;
   justify-content:center;
   padding:0;
 }
@@ -404,7 +439,7 @@ html.clone-mode,
   aspect-ratio:16/9;
   position:relative;
   overflow:hidden;
-  background:#000;
+  background:#050507;
   cursor:pointer;
 }
 
@@ -415,7 +450,7 @@ html.clone-mode,
   display:block;
   opacity:0;
   transition:opacity .25s ease;
-  background:#000;
+  background:#050507;
 }
 
 .vp-frame.is-ready{
@@ -436,11 +471,11 @@ html.clone-mode,
   border-radius:999px;
   align-items:center;
   justify-content:center;
-  background:rgba(0,0,0,.4);
+  background:rgba(0,0,0,.45);
   z-index:30;
   color:#fff;
   cursor:pointer;
-  backdrop-filter:blur(2px);
+  backdrop-filter:blur(6px);
 }
 
 .vp-clone-back-btn svg{
@@ -467,7 +502,7 @@ html.clone-mode,
   align-items:center;
   justify-content:center;
   color:var(--player-icon);
-  filter:drop-shadow(1px 1px 2px rgba(0,0,0,.5));
+  filter:drop-shadow(1px 2px 4px rgba(0,0,0,.7));
 }
 
 .vp-sound-btn svg{
@@ -504,8 +539,13 @@ html.clone-mode,
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  box-shadow:0 3px 8px rgba(0,0,0,.22);
-  backdrop-filter:blur(2px);
+  box-shadow:0 4px 14px rgba(0,0,0,.4);
+  backdrop-filter:blur(6px);
+  transition:transform .15s ease, background .15s ease;
+}
+
+.vp-play-btn:hover{
+  background:var(--accent);
 }
 
 .vp-center-btn{
@@ -544,7 +584,7 @@ html.clone-mode,
   align-items:flex-end;
   justify-content:space-between;
   gap:12px;
-  padding:10px 10px 10px 12px;
+  padding:12px 12px 10px;
   background:var(--player-bottom-grad);
   color:var(--player-icon);
 }
@@ -562,15 +602,15 @@ html.clone-mode,
   align-items:center;
   gap:8px;
   color:var(--player-icon);
-  font-size:16px;
+  font-size:15px;
   font-weight:700;
-  text-shadow:1px 1px 2px rgba(0,0,0,.45);
+  text-shadow:1px 2px 4px rgba(0,0,0,.6);
   white-space:nowrap;
 }
 
 .vp-player-stat svg{
-  width:24px;
-  height:24px;
+  width:22px;
+  height:22px;
   fill:currentColor;
   flex-shrink:0;
 }
@@ -581,15 +621,15 @@ html.clone-mode,
 }
 
 .vp-mini-cycle{
-  width:20px;
-  height:20px;
+  width:22px;
+  height:22px;
   border-radius:999px;
-  border:1.5px solid rgba(255,255,255,.78);
+  border:1.5px solid rgba(255,255,255,.8);
   display:inline-flex;
   align-items:center;
   justify-content:center;
   color:var(--player-icon);
-  font-size:13px;
+  font-size:12px;
   line-height:1;
   font-weight:700;
   opacity:.95;
@@ -605,12 +645,12 @@ html.clone-mode,
   color:var(--player-icon);
   position:relative;
   flex-shrink:0;
-  filter:drop-shadow(1px 1px 2px rgba(0,0,0,.45));
+  filter:drop-shadow(1px 2px 4px rgba(0,0,0,.6));
 }
 
 .vp-player-icon-btn svg{
-  width:28px;
-  height:28px;
+  width:26px;
+  height:26px;
   display:block;
   fill:currentColor;
 }
@@ -641,19 +681,20 @@ html.clone-mode,
 }
 
 .vp-auto-label{
-  font-size:16px;
+  font-size:15px;
   color:var(--player-icon);
   font-weight:700;
-  text-shadow:1px 1px 2px rgba(0,0,0,.4);
+  text-shadow:1px 2px 4px rgba(0,0,0,.5);
   white-space:nowrap;
 }
 
 .vp-action-bar{
   display:grid;
   grid-template-columns:repeat(6,1fr);
-  gap:2px;
-  padding:10px 6px;
+  gap:4px;
+  padding:12px 6px;
   background:var(--surface-bg);
+  border-bottom:1px solid var(--border);
 }
 
 .vp-action-item{
@@ -661,18 +702,21 @@ html.clone-mode,
   flex-direction:column;
   align-items:center;
   justify-content:flex-start;
-  gap:5px;
+  gap:4px;
   color:var(--text-main);
   text-align:center;
   min-width:0;
   position:relative;
   cursor:pointer;
   user-select:none;
+  padding:4px 0;
+  border-radius:6px;
+  transition:background .15s ease;
 }
 
 .vp-action-icon{
-  width:30px;
-  height:30px;
+  width:28px;
+  height:28px;
   color:var(--icon-main);
   position:relative;
 }
@@ -690,24 +734,26 @@ html.clone-mode,
 
 .vp-action-value,
 .vp-action-label{
-  font-size:10px;
-  line-height:1.05;
-  color:var(--text-main);
+  font-size:11px;
+  line-height:1.1;
+  color:var(--text-muted);
   white-space:normal;
   text-align:center;
 }
 
 .vp-action-value{
   font-size:12px;
+  font-weight:600;
+  color:var(--text-main);
 }
 
 .vp-comments-badge{
   position:absolute;
-  top:-6px;
-  right:-6px;
-  min-width:22px;
-  height:22px;
-  padding:0 6px;
+  top:-4px;
+  right:-4px;
+  min-width:18px;
+  height:18px;
+  padding:0 5px;
   border-radius:999px;
   background:var(--accent);
   color:#fff;
@@ -717,7 +763,6 @@ html.clone-mode,
   align-items:center;
   justify-content:center;
   line-height:1;
-  box-shadow:0 2px 4px rgba(0,0,0,.15);
 }
 
 .vp-tabs{
@@ -731,14 +776,15 @@ html.clone-mode,
 
 .vp-tab{
   position:relative;
-  padding:4px 4px 10px;
+  padding:8px 4px 12px;
   font-size:13px;
   line-height:1.15;
   font-weight:700;
-  color:var(--text-main);
+  color:var(--text-muted);
   cursor:pointer;
   white-space:nowrap;
   text-align:left;
+  transition:color .15s ease;
 }
 
 .vp-tab.active{
@@ -751,15 +797,16 @@ html.clone-mode,
   left:0;
   right:20%;
   bottom:-1px;
-  height:4px;
+  height:3px;
   background:var(--tab-active);
+  border-radius:2px 2px 0 0;
 }
 
 .vp-related-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:14px 4px;
-  padding:0 14px 20px;
+  gap:16px 8px;
+  padding:14px 14px 24px;
   background:var(--surface-bg);
 }
 
@@ -776,7 +823,8 @@ html.clone-mode,
   width:100%;
   aspect-ratio:16/9;
   overflow:hidden;
-  background:#d8d8d8;
+  border-radius:8px;
+  background:#1f1d2b;
   margin-bottom:8px;
 }
 
@@ -789,8 +837,8 @@ html.clone-mode,
 
 .vp-thumb-badge{
   position:absolute;
-  bottom:7px;
-  right:7px;
+  bottom:6px;
+  right:6px;
   display:inline-flex;
   align-items:center;
   gap:4px;
@@ -798,28 +846,31 @@ html.clone-mode,
   line-height:1;
   font-weight:700;
   color:#fff;
-  background:rgba(90,90,90,.82);
-  padding:4px 6px;
-  border-radius:3px;
+  background:rgba(15,14,21,.85);
+  backdrop-filter:blur(4px);
+  padding:3px 6px;
+  border-radius:4px;
 }
 
 .vp-thumb-badge .k4{
-  font-size:16px;
-  font-weight:700;
+  font-size:14px;
+  font-weight:800;
+  color:var(--accent);
 }
 
 .vp-card-title-row{
   display:flex;
   align-items:flex-start;
-  gap:8px;
+  gap:6px;
   min-width:0;
 }
 
 .vp-card-title{
   flex:1;
   min-width:0;
-  font-size:11px;
-  line-height:1.16;
+  font-size:12px;
+  line-height:1.25;
+  font-weight:600;
   color:var(--text-main);
   margin:0;
   display:-webkit-box;
@@ -829,8 +880,8 @@ html.clone-mode,
 }
 
 .vp-card-menu{
-  width:20px;
-  height:20px;
+  width:18px;
+  height:18px;
   color:var(--icon-muted);
   flex-shrink:0;
   margin-top:1px;
@@ -850,14 +901,14 @@ html.clone-mode,
   color:var(--text-muted);
   font-size:11px;
   line-height:1.2;
-  margin-top:4px;
+  margin-top:6px;
   min-width:0;
   flex-wrap:wrap;
 }
 
 .vp-card-avatar{
-  width:22px;
-  height:22px;
+  width:20px;
+  height:20px;
   border-radius:50%;
   display:inline-flex;
   align-items:center;
@@ -865,7 +916,7 @@ html.clone-mode,
   font-size:10px;
   font-weight:700;
   color:#fff;
-  background:linear-gradient(135deg,#A78BFA 0%,#6D28D9 100%);
+  background:linear-gradient(135deg,var(--accent) 0%,var(--accent-dark) 100%);
   overflow:hidden;
   flex-shrink:0;
 }
@@ -896,35 +947,35 @@ html.clone-mode,
 .vp-modal-overlay{
   position:absolute;
   inset:0;
-  background:rgba(0,0,0,.72);
-  backdrop-filter:blur(4px);
+  background:rgba(0,0,0,.78);
+  backdrop-filter:blur(6px);
 }
 
 .vp-modal-content{
   position:relative;
   z-index:100000;
   width:86%;
-  max-width:310px;
+  max-width:320px;
   background:var(--modal-bg);
   border:1px solid var(--border);
-  border-radius:16px;
+  border-radius:18px;
   padding:24px;
   text-align:center;
   color:var(--modal-text);
-  box-shadow:0 10px 40px rgba(0,0,0,.35);
+  box-shadow:0 16px 48px rgba(0,0,0,.45);
 }
 
 .vp-modal-title{
-  font-size:21px;
+  font-size:20px;
   font-weight:700;
-  margin-bottom:10px;
+  margin-bottom:8px;
 }
 
 .vp-modal-desc{
-  font-size:15px;
+  font-size:14px;
   line-height:1.45;
   color:var(--modal-muted);
-  margin-bottom:18px;
+  margin-bottom:20px;
 }
 
 .vp-modal-actions{
@@ -938,10 +989,15 @@ html.clone-mode,
   outline:none;
   padding:12px;
   border-radius:10px;
-  font-size:16px;
+  font-size:15px;
   font-weight:700;
   cursor:pointer;
   width:100%;
+  transition:opacity .15s ease;
+}
+
+.vp-btn:active{
+  opacity:.85;
 }
 
 .vp-btn-primary{
@@ -955,14 +1011,13 @@ html.clone-mode,
 }
 
 @media (max-width:430px){
-  .vp-title{font-size:21px}
+  .vp-title{font-size:19px}
   .vp-tab{font-size:13px}
-  .vp-card-title{font-size:11px}
+  .vp-card-title{font-size:12px}
   .vp-card-meta{font-size:11px}
 }
-/* ===== RTL only for Arabic (safe patch) ===== */
 
-/* Базовое направление для текста */
+/* ===== RTL only for Arabic (safe patch) ===== */
 html[dir="rtl"]{
   direction: rtl;
 }
@@ -971,7 +1026,6 @@ html[dir="rtl"] body{
   direction: rtl;
 }
 
-/* Заголовок и текстовые зоны */
 html[dir="rtl"] .vp-title-section{
   direction: rtl;
 }
@@ -985,7 +1039,6 @@ html[dir="rtl"] .vp-tags-row{
   justify-content: flex-start;
 }
 
-/* Табы */
 html[dir="rtl"] .vp-tabs{
   direction: rtl;
 }
@@ -999,7 +1052,6 @@ html[dir="rtl"] .vp-tab.active::after{
   right: 0;
 }
 
-/* Карточки related */
 html[dir="rtl"] .vp-related-grid{
   direction: rtl;
 }
@@ -1016,14 +1068,11 @@ html[dir="rtl"] .vp-card-meta{
   direction: rtl;
 }
 
-/* Модалка */
 html[dir="rtl"] .vp-modal-content{
   direction: rtl;
 }
 
 /* ===== ВАЖНО: эти блоки НЕ зеркалим ===== */
-
-/* Хедер оставляем как в оригинальном layout */
 html[dir="rtl"] .vp-header,
 html[dir="rtl"] .vp-header-left,
 html[dir="rtl"] .vp-header-right,
@@ -1031,7 +1080,6 @@ html[dir="rtl"] .vp-region-sex{
   direction: ltr;
 }
 
-/* Плеер полностью оставляем LTR */
 html[dir="rtl"] .vp-fake-player,
 html[dir="rtl"] .vp-frame,
 html[dir="rtl"] .vp-player-top-right,
@@ -1044,7 +1092,6 @@ html[dir="rtl"] .vp-clone-back-btn{
   direction: ltr;
 }
 
-/* Панель экшенов под плеером тоже НЕ зеркалим */
 html[dir="rtl"] .vp-action-bar,
 html[dir="rtl"] .vp-action-item,
 html[dir="rtl"] .vp-action-icon,
@@ -1053,9 +1100,7 @@ html[dir="rtl"] .vp-action-label{
   direction: ltr;
 }
 
-/* ===== MOBILE: EDGE-TO-EDGE LAYOUT =====
-   Убираем поля body и лимит 420px только на мобильных.
-   Десктопный вид и все остальные компоненты не меняем. */
+/* ===== MOBILE: EDGE-TO-EDGE LAYOUT ===== */
 @media (max-width:600px){
   body{
     width:100%;
