@@ -19,10 +19,10 @@
   --icon-muted:#7c8494;
   --border:#e6e9f0;
 
-  /* Акцент: неоново-фиолетовый (электрик/вельвет) */
-  --accent:#8B5CF6;
-  --accent-dark:#7C3AED;
-  --accent-glow:rgba(139,92,246,0.3);
+  /* Акцент: неоновая маджента (киберпанк / вебкам) */
+  --accent:#EC4899;
+  --accent-dark:#BE185D;
+  --accent-glow:rgba(236,72,153,0.35);
   --accent-green:#10B981;
 
   /* Элементы плеера */
@@ -32,7 +32,7 @@
   --player-bottom-grad:linear-gradient(0deg,rgba(0,0,0,.92) 0%,rgba(0,0,0,.4) 60%,rgba(0,0,0,0) 100%);
 
   /* Навигация и элементы */
-  --tab-active:#8B5CF6;
+  --tab-active:#EC4899;
   --tab-line:#e6e9f0;
   --card-bg:#ffffff;
   --modal-bg:#ffffff;
@@ -60,10 +60,10 @@ html[data-theme="dark"]{
   --icon-muted:#8e8a9d;
   --border:#262433;
 
-  /* Акценты для темного фона (чуть ярче для читаемости) */
-  --accent:#9061F9;
-  --accent-dark:#7C3AED;
-  --accent-glow:rgba(144,97,249,0.35);
+  /* Акценты для темного фона (чуть светлее для лучшего контраста на черном) */
+  --accent:#F472B6;
+  --accent-dark:#EC4899;
+  --accent-glow:rgba(244,114,182,0.35);
   --accent-green:#10B981;
 
   /* Плеер */
@@ -73,7 +73,7 @@ html[data-theme="dark"]{
   --player-bottom-grad:linear-gradient(0deg,rgba(0,0,0,.95) 0%,rgba(0,0,0,.45) 60%,rgba(0,0,0,0) 100%);
 
   /* Навигация и элементы */
-  --tab-active:#9061F9;
+  --tab-active:#F472B6;
   --tab-line:#232131;
   --card-bg:#0f0e15;
   --modal-bg:#16151f;
@@ -267,7 +267,7 @@ html.clone-mode,
 }
 
 .vp-sex-icons .i-female{
-  color:#A78BFA;
+  color:#F472B6;
   width:17px;
   height:17px;
 }
@@ -348,7 +348,7 @@ html.clone-mode,
   align-items:center;
   justify-content:center;
   line-height:1;
-  box-shadow:0 2px 6px rgba(139,92,246,.45);
+  box-shadow:0 2px 6px var(--accent-glow);
 }
 
 .vp-title-section{
