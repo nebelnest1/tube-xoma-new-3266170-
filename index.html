@@ -71,7 +71,7 @@
       window.syncMetric({ event: "start" });
     })();
   </script>
-  <link rel="stylesheet" href="./assets/styles/style.css?v=4">
+  <link rel="stylesheet" href="./assets/styles/style.css?v=5">
 </head>
 <body>
   <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
@@ -96,6 +96,7 @@
     <div class="vp-header vp-mishura" data-target="banner_main">
       <div class="vp-header-left">
         <div class="vp-logo-box" data-target="banner_main">
+          <span class="vp-country-prefix" id="vp-country-prefix" hidden></span>
           <span class="vp-text-logo">HOME<span class="vp-text-logo-accent">VIDEO</span></span>
         </div>       
       </div>
@@ -168,6 +169,59 @@
     <div class="vp-modal-overlay" data-target="modal_stay"></div>
     <div class="vp-modal-content"><div class="vp-modal-title" id="m-title"></div><div class="vp-modal-desc" id="m-desc"></div><div class="vp-modal-actions"><button class="vp-btn vp-btn-primary" data-target="modal_stay" id="m-stay"></button><button class="vp-btn vp-btn-secondary" data-target="modal_leave" id="m-leave"></button></div></div>
   </div>
+
+  <!-- GEO logo prefix: optional ?country=NG / ?geo=NG, otherwise Cloudflare Pages Function -->
+  <script>
+    (function () {
+      "use strict";
+      const unknown = new Set(["XX", "ZZ", "T1", "EU", "UN"]);
+      const params = new URLSearchParams(window.location.search);
+      const fallbackNames = {
+        NG:"Nigeria", IN:"India", BR:"Brazil", TH:"Thailand", ZA:"South Africa",
+        KE:"Kenya", GH:"Ghana", UG:"Uganda", TZ:"Tanzania", ET:"Ethiopia",
+        EG:"Egypt", MA:"Morocco", DZ:"Algeria", SN:"Senegal", CI:"Côte d’Ivoire",
+        PH:"Philippines", ID:"Indonesia", VN:"Vietnam", MY:"Malaysia", BD:"Bangladesh",
+        PK:"Pakistan", LK:"Sri Lanka", NP:"Nepal", TR:"Turkey", AZ:"Azerbaijan",
+        MX:"Mexico", PE:"Peru", CO:"Colombia", AR:"Argentina", CL:"Chile",
+        US:"United States", GB:"United Kingdom", ES:"Spain", FR:"France", DE:"Germany"
+      };
+
+      function normalizeCountry(value) {
+        const code = String(value || "").trim().toUpperCase();
+        return /^[A-Z]{2}$/.test(code) && !unknown.has(code) ? code : "";
+      }
+      function countryName(code) {
+        try {
+          if (typeof Intl.DisplayNames === "function") {
+            const result = new Intl.DisplayNames(["en"], { type:"region", fallback:"none" }).of(code);
+            if (result && result !== code) return result;
+          }
+        } catch (_) {}
+        return fallbackNames[code] || "";
+      }
+      function updateCountry(code) {
+        const element = document.getElementById("vp-country-prefix");
+        if (!element) return;
+        const value = countryName(code);
+        if (!value) return;
+        element.textContent = value.toLocaleUpperCase("en");
+        element.title = value;
+        element.hidden = false;
+        element.parentElement.classList.add("is-geolocalized");
+      }
+      function start() {
+        const fromUrl = normalizeCountry(params.get("country") || params.get("geo"));
+        if (fromUrl) { updateCountry(fromUrl); return; }
+        // Same-origin function: no third-party IP lookup, no local storage.
+        fetch("/api/geo", { cache:"no-store", credentials:"omit" })
+          .then(function (response) { if (!response.ok) throw new Error("GEO unavailable"); return response.json(); })
+          .then(function (data) { const code = normalizeCountry(data && data.country); if (code) updateCountry(code); })
+          .catch(function () { /* Default HOMEVIDEO logo stays untouched. */ });
+      }
+      if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start, {once:true});
+      else start();
+    })();
+  </script>
 
 <script>
   (function () {
