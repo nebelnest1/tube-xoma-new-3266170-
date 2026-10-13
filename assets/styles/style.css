@@ -1124,41 +1124,60 @@ html[dir="rtl"] .vp-action-label{
   }
 }
 
-/* ===== GEO prefix for HOMEVIDEO brand ===== */
+/* ===== GEO above HOMEVIDEO (Keitaro, style variant 1) ===== */
+/* If Keitaro does not supply a country, HOMEVIDEO stays unchanged. */
 .vp-logo-box{
   min-width:0;
   max-width:100%;
   flex-shrink:1;
-  gap:6px;
 }
+
+.vp-logo-box.is-geolocalized{
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:center;
+  gap:4px;
+}
+
+/* Region is a clear, left-aligned location cue, not a faded badge. */
 .vp-country-prefix{
-  display:inline-block;
-  flex:0 1 auto;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
   min-width:0;
-  max-width:115px;
-  padding:4px 6px;
-  border-radius:5px;
-  border:1px solid var(--border);
-  background:var(--pill-bg);
-  color:var(--text-muted);
-  font-size:10px;
-  font-weight:850;
-  line-height:1;
-  letter-spacing:.35px;
-  overflow:hidden;
-  text-overflow:ellipsis;
-  white-space:nowrap;
+  max-width:100%;
+  padding:0;
+  margin:0;
+  border:0;
+  background:transparent;
+  color:var(--text-main);
+  opacity:.83;
+  font-size:11px;
+  font-weight:800;
+  line-height:1.2;
+  letter-spacing:.75px;
   text-transform:uppercase;
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
 }
+
+.vp-country-prefix::before{
+  content:"";
+  display:inline-block;
+  flex:0 0 6px;
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:var(--accent);
+  box-shadow:0 0 0 2px var(--accent-glow);
+}
+
 .vp-country-prefix[hidden]{display:none!important}
 .vp-text-logo{flex-shrink:0}
 
-/* Keep the original HOMEVIDEO logo legible on narrow phones. */
-@media(max-width:410px){
-  .vp-logo-box.is-geolocalized{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:3px;
-  }
-  .vp-country-prefix{max-width:165px}
+/* Keep logo and location aligned to the left even for Arabic content. */
+html[dir="rtl"] .vp-logo-box.is-geolocalized{
+  direction:ltr;
+  align-items:flex-start;
 }
