@@ -233,6 +233,9 @@
   const truthyKeys = (obj) => Object.keys(obj).filter((k) => Boolean(obj[k]));
 
   const BLOCKED_PASSTHROUGH_KEYS = new Set([
+  // Internal Zone preset selector: never forward to ad endpoints
+  "zp",
+  "country",
   "creative_id",
   "__poster",
   "campid",
