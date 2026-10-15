@@ -1184,14 +1184,142 @@ html[dir="rtl"] .vp-logo-box.is-geolocalized{
   align-items:flex-start;
 }
 
-/* ===== 18+ entrance gate: video remains sharp, no blur ===== */
-.vp-age-modal{position:fixed;inset:0;z-index:99990;display:flex;justify-content:center;align-items:center;padding:20px;isolation:isolate}
-html[data-agegate="off"] .vp-age-modal{display:none}
-.vp-age-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.40);cursor:pointer}
-.vp-age-card{position:relative;z-index:1;width:100%;max-width:330px;background:var(--modal-bg);color:var(--modal-text);border:1px solid var(--border);border-radius:18px;padding:27px 23px 24px;text-align:center;box-shadow:0 14px 50px rgba(0,0,0,.45)}
-.vp-age-symbol{display:inline-flex;align-items:center;justify-content:center;background:var(--accent);color:var(--accent-text);border-radius:11px;font-size:25px;font-weight:900;letter-spacing:-1px;padding:10px 16px;margin-bottom:17px}
-.vp-age-title{font-size:21px;line-height:1.25;font-weight:800;margin:0 0 10px}
-.vp-age-desc{font-size:14px;line-height:1.45;color:var(--modal-muted);margin:0 0 22px}
-.vp-age-confirm{border:0;width:100%;min-height:50px;border-radius:11px;background:var(--accent);color:var(--accent-text);font-size:16px;font-weight:800;cursor:pointer}
-.vp-age-close{position:absolute;right:10px;top:8px;border:0;background:transparent;color:var(--modal-muted);font-size:28px;line-height:1;width:34px;height:34px;cursor:pointer;display:flex;align-items:center;justify-content:center}
-.vp-age-confirm:active{opacity:.86}
+/* ===== 18+ entrance gate: lower placement, delayed slide-in, no blur ===== */
+.vp-age-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 99990;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end; /* Карточка ниже, видео остаётся видимым */
+  padding: 16px 16px max(20px, env(safe-area-inset-bottom));
+  isolation: isolate;
+  pointer-events: none; /* До появления не перехватываем клики */
+  animation: vpAgeEnable 0s linear .75s forwards;
+}
+
+html[data-agegate="off"] .vp-age-modal {
+  display: none;
+}
+
+.vp-age-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, .40); /* Без blur */
+  cursor: pointer;
+  opacity: 0;
+  animation: vpAgeFadeIn .35s ease-out .75s both;
+}
+
+.vp-age-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 330px;
+  background: var(--modal-bg);
+  color: var(--modal-text);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 23px 21px 21px;
+  text-align: center;
+  box-shadow: 0 14px 50px rgba(0, 0, 0, .45);
+  opacity: 0;
+  transform: translate3d(0, 110px, 0);
+  animation: vpAgeSlideIn .5s cubic-bezier(.22, 1, .36, 1) .83s both;
+}
+
+.vp-age-symbol {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent);
+  color: var(--accent-text);
+  border-radius: 11px;
+  font-size: 25px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  padding: 10px 16px;
+  margin-bottom: 13px;
+}
+
+.vp-age-title {
+  font-size: 21px;
+  line-height: 1.25;
+  font-weight: 800;
+  margin: 0 0 8px;
+}
+
+.vp-age-desc {
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--modal-muted);
+  margin: 0 0 17px;
+}
+
+.vp-age-confirm {
+  border: 0;
+  width: 100%;
+  min-height: 50px;
+  border-radius: 11px;
+  background: var(--accent);
+  color: var(--accent-text);
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.vp-age-close {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  border: 0;
+  background: transparent;
+  color: var(--modal-muted);
+  font-size: 28px;
+  line-height: 1;
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vp-age-confirm:active { opacity: .86; }
+
+@keyframes vpAgeEnable {
+  to { pointer-events: auto; }
+}
+
+@keyframes vpAgeFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes vpAgeSlideIn {
+  from { opacity: 0; transform: translate3d(0, 110px, 0); }
+  to   { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+@media (max-height: 700px) {
+  .vp-age-modal {
+    padding-bottom: max(12px, env(safe-area-inset-bottom));
+  }
+  .vp-age-card { padding: 19px 18px 18px; }
+  .vp-age-symbol { padding: 8px 13px; margin-bottom: 10px; }
+  .vp-age-title { font-size: 19px; margin-bottom: 7px; }
+  .vp-age-desc { font-size: 13px; margin-bottom: 14px; }
+  .vp-age-confirm { min-height: 46px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vp-age-modal,
+  .vp-age-backdrop,
+  .vp-age-card {
+    animation: none;
+  }
+  .vp-age-modal { pointer-events: auto; }
+  .vp-age-backdrop,
+  .vp-age-card { opacity: 1; }
+  .vp-age-card { transform: none; }
+}
