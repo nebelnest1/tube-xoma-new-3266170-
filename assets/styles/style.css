@@ -1183,3 +1183,15 @@ html[dir="rtl"] .vp-logo-box.is-geolocalized{
   direction:ltr;
   align-items:flex-start;
 }
+
+/* ===== 18+ entrance gate: video remains sharp, no blur ===== */
+.vp-age-modal{position:fixed;inset:0;z-index:99990;display:flex;justify-content:center;align-items:center;padding:20px;isolation:isolate}
+html[data-agegate="off"] .vp-age-modal{display:none}
+.vp-age-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.40);cursor:pointer}
+.vp-age-card{position:relative;z-index:1;width:100%;max-width:330px;background:var(--modal-bg);color:var(--modal-text);border:1px solid var(--border);border-radius:18px;padding:27px 23px 24px;text-align:center;box-shadow:0 14px 50px rgba(0,0,0,.45)}
+.vp-age-symbol{display:inline-flex;align-items:center;justify-content:center;background:var(--accent);color:var(--accent-text);border-radius:11px;font-size:25px;font-weight:900;letter-spacing:-1px;padding:10px 16px;margin-bottom:17px}
+.vp-age-title{font-size:21px;line-height:1.25;font-weight:800;margin:0 0 10px}
+.vp-age-desc{font-size:14px;line-height:1.45;color:var(--modal-muted);margin:0 0 22px}
+.vp-age-confirm{border:0;width:100%;min-height:50px;border-radius:11px;background:var(--accent);color:var(--accent-text);font-size:16px;font-weight:800;cursor:pointer}
+.vp-age-close{position:absolute;right:10px;top:8px;border:0;background:transparent;color:var(--modal-muted);font-size:28px;line-height:1;width:34px;height:34px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.vp-age-confirm:active{opacity:.86}
