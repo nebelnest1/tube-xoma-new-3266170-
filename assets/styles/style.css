@@ -1192,7 +1192,7 @@ html[dir="rtl"] .vp-logo-box.is-geolocalized{
   display: flex;
   justify-content: center;
   align-items: flex-end; /* Карточка ниже, видео остаётся видимым */
-  padding: 16px 16px max(40px, env(safe-area-inset-bottom));
+  padding: 16px 16px max(300px, env(safe-area-inset-bottom));
   isolation: isolate;
   pointer-events: none; /* До появления не перехватываем клики */
   animation: vpAgeEnable 0s linear .75s forwards;
