@@ -252,12 +252,21 @@
       it:["Hai almeno 18 anni?", "Devi avere almeno 18 anni per vedere questo contenuto.", "Sì, ho 18+ anni", "Chiudi"],
       fr:["Avez-vous 18 ans ou plus ?", "Vous devez avoir au moins 18 ans pour voir ce contenu.", "Oui, j’ai 18 ans ou plus", "Fermer"]
     };
-    var lang = window.__landingLang || "en";
-    var t = copy[lang] || copy.en;
-    document.getElementById("vp-age-title").textContent = t[0];
-    document.getElementById("vp-age-desc").textContent = t[1];
-    document.getElementById("vp-age-confirm").textContent = t[2];
-    document.getElementById("vp-age-close").setAttribute("aria-label", t[3]);
+    // __landingLang is initialized later in this document.
+    // Translate after all synchronous scripts have run, before the user can interact.
+    function applyAgeGateLanguage() {
+      var lang = window.__landingLang || "en";
+      var t = copy[lang] || copy.en;
+      document.getElementById("vp-age-title").textContent = t[0];
+      document.getElementById("vp-age-desc").textContent = t[1];
+      document.getElementById("vp-age-confirm").textContent = t[2];
+      document.getElementById("vp-age-close").setAttribute("aria-label", t[3]);
+    }
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", applyAgeGateLanguage, { once: true });
+    } else {
+      applyAgeGateLanguage();
+    }
   })();
   </script>
 
