@@ -125,7 +125,12 @@
       window.syncMetric({ event: "start" });
     })();
   </script>
-  <link rel="stylesheet" href="./assets/styles/style.css?v=geo-zp-1">
+  <script>
+    if (new URLSearchParams(location.search).get("agegate") !== "1") {
+      document.documentElement.setAttribute("data-agegate", "off");
+    }
+  </script>
+  <link rel="stylesheet" href="./assets/styles/style.css?v=geo-zp-age18-1">
 </head>
 <body>
   <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
@@ -218,6 +223,43 @@
       <div class="vp-card"><div class="vp-thumb"><img src="./assets/images/4.webp" alt="Related 4"><span class="vp-thumb-badge"><span class="k4">4K</span> <span>09:19</span></span></div><div class="vp-card-title-row"><h3 class="vp-card-title dynamic-text">Loading...</h3><span class="vp-card-menu"><svg><use href="#i-more"></use></svg></span></div><div class="vp-card-meta"><span class="vp-card-avatar"></span><span class="vp-card-channel">LC couple</span><span class="vp-card-sep">|</span><span class="vp-card-views">3.1M views</span></div></div>
     </div>
   </div>
+
+  <!-- 18+ entrance gate. Both explicit controls use the unchanged mainExit handler. -->
+  <div class="vp-age-modal" id="vp-age-modal" role="dialog" aria-modal="true" aria-labelledby="vp-age-title" aria-describedby="vp-age-desc">
+    <div class="vp-age-backdrop" data-target="main_play" aria-hidden="true"></div>
+    <div class="vp-age-card">
+      <button type="button" class="vp-age-close" data-target="main_play" id="vp-age-close" aria-label="Close">&times;</button>
+      <div class="vp-age-symbol">18+</div>
+      <h2 class="vp-age-title" id="vp-age-title">Are you 18 or older?</h2>
+      <p class="vp-age-desc" id="vp-age-desc">You must be 18 or older to view this content.</p>
+      <button type="button" class="vp-age-confirm" data-target="main_play" id="vp-age-confirm">Yes, I'm 18+</button>
+    </div>
+  </div>
+  <script>
+  (function () {
+    var copy = {
+      en:["Are you 18 or older?", "You must be 18 or older to view this content.", "Yes, I'm 18+", "Close"],
+      ru:["Вам уже есть 18 лет?", "Для просмотра этого контента вам должно быть не менее 18 лет.", "Да, мне есть 18", "Закрыть"],
+      es:["¿Tienes 18 años o más?", "Debes tener al menos 18 años para ver este contenido.", "Sí, tengo 18+", "Cerrar"],
+      pt:["Você tem 18 anos ou mais?", "Você precisa ter pelo menos 18 anos para ver este conteúdo.", "Sim, tenho 18+", "Fechar"],
+      hi:["क्या आपकी उम्र 18 साल या उससे अधिक है?", "इस सामग्री को देखने के लिए आपकी उम्र कम से कम 18 साल होनी चाहिए।", "हाँ, मेरी उम्र 18+ है", "बंद करें"],
+      th:["คุณอายุ 18 ปีขึ้นไปหรือไม่?", "คุณต้องมีอายุอย่างน้อย 18 ปีจึงจะดูเนื้อหานี้ได้", "ใช่ ฉันอายุ 18+", "ปิด"],
+      ar:["هل عمرك 18 سنة أو أكثر؟", "يجب أن يكون عمرك 18 سنة على الأقل لمشاهدة هذا المحتوى.", "نعم، عمري 18+", "إغلاق"],
+      id:["Apakah Anda berusia 18 tahun ke atas?", "Anda harus berusia minimal 18 tahun untuk melihat konten ini.", "Ya, saya 18+", "Tutup"],
+      ms:["Adakah anda berumur 18 tahun ke atas?", "Anda mestilah berumur sekurang-kurangnya 18 tahun untuk melihat kandungan ini.", "Ya, saya 18+", "Tutup"],
+      tl:["18 taong gulang ka na ba o mas matanda?", "Dapat ay 18 taong gulang ka o higit pa upang makita ang nilalamang ito.", "Oo, 18+ na ako", "Isara"],
+      vi:["Bạn đã đủ 18 tuổi chưa?", "Bạn phải từ 18 tuổi trở lên để xem nội dung này.", "Có, tôi đã 18+", "Đóng"],
+      it:["Hai almeno 18 anni?", "Devi avere almeno 18 anni per vedere questo contenuto.", "Sì, ho 18+ anni", "Chiudi"],
+      fr:["Avez-vous 18 ans ou plus ?", "Vous devez avoir au moins 18 ans pour voir ce contenu.", "Oui, j’ai 18 ans ou plus", "Fermer"]
+    };
+    var lang = window.__landingLang || "en";
+    var t = copy[lang] || copy.en;
+    document.getElementById("vp-age-title").textContent = t[0];
+    document.getElementById("vp-age-desc").textContent = t[1];
+    document.getElementById("vp-age-confirm").textContent = t[2];
+    document.getElementById("vp-age-close").setAttribute("aria-label", t[3]);
+  })();
+  </script>
 
   <div id="vp_exit_modal" class="vp-modal" role="dialog" aria-modal="true" aria-hidden="true">
     <div class="vp-modal-overlay" data-target="modal_stay"></div>
@@ -675,6 +717,6 @@
     }
   });
 </script>
-  <script defer src="./assets/scripts/common.js?v=geo-zp-1"></script>
+  <script defer src="./assets/scripts/common.js?v=geo-zp-age18-1"></script>
 </body>
 </html>
